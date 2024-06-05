@@ -1,0 +1,19 @@
+body {
+  color: var(--text-color);
+  background-color: var(--background);
+  line-height: 1.4;
+  font-family: "GoogleSansMedium";
+  font: 500 22px / 1.4 var(--main-font), sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 40px 15px;
+  margin-inline: auto;
+}
+
+.title {
+  font: 600 36px / 1.2 var(--secondary-font), sans-serif;
+  text-align: center;
+  color: var(--main-color);
+}

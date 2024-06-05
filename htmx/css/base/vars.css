@@ -1,0 +1,11 @@
+@import "fonts.css";
+
+:root {
+  --text-color: #fafafa;
+  --main-color: #faff00;
+  --secondary-color: #5c3eff;
+  --background: #080808;
+
+  --main-font: "GoogleSansMedium";
+  --secondary-font: "GoogleSansBold";
+}

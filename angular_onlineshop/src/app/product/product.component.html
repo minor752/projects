@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h2>{{ productProps.title }}</h2>
+  <div class="flex-center">
+    <quill-view-html [content]="productProps.photo"></quill-view-html>
+  </div>
+  <h2>Price: {{productProps.price}} $</h2>
+  <button [routerLink]="['/product', productProps.id]" class="btn btn-dark">Open</button>
+  <button [routerLink]="['/cart']" class="btn btn-dark" (click)="addToCart(productProps)">Add to cart</button>
+</div>

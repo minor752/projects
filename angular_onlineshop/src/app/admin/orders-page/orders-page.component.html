@@ -1,0 +1,45 @@
+<div *ngIf="orders.length > 0; else empty">
+  <h2 class="text-center">Dashboard of products</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Phone</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Products</th>
+        <th>Total Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.date | date : "fullDate" }}</td>
+        <td>{{ order.phone }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.address }}</td>
+        <td>
+          <div *ngFor="let product of order.orders">
+            {{ product.title }}
+            <hr *ngIf="order.orders.length > 1" />
+          </div>
+        </td>
+        <td>
+          <div class="text-center">
+            {{ order.price | currency : "RUB" : "code" }}
+          </div>
+          <div class="text-center">{{ order.payment }}</div>
+        </td>
+        <td>
+          <button (click)="remove(order.id)" class="btn btn-danger">
+            Completed
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #empty>
+  <p class="text-center">No orders</p>
+</ng-template>

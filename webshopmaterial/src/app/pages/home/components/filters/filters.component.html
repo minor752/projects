@@ -1,0 +1,14 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> CATEGORIES </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <mat-selection-list *ngIf="categories" [multiple]="false">
+    <mat-list-option *ngFor="let category of categories" [value]="category">
+      <button (click)="onShowCategory(category)">{{ category }}</button>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-expansion-panel>
+<div *ngIf="!categories" class="flex justify-center">
+  <mat-spinner [style]="{ width: '50px' }"></mat-spinner>
+</div>

@@ -1,0 +1,69 @@
+<ng-container *ngIf="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2 class="text-center">Update product</h2>
+
+    <div class="form-control">
+      <label for="type">Type</label>
+      <select id="type" formControlName="type">
+        <option value="Phone">Phone</option>
+        <option value="Tablet">Tablet</option>
+        <option value="Laptop">Laptop</option>
+      </select>
+      <div
+        *ngIf="form.get('type').touched && form.get('type').invalid"
+        class="validation"
+      >
+        <small *ngIf="form.get('type').errors['required']"
+          >Choose product type</small
+        >
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="title">Name</label>
+      <input id="title" type="text" formControlName="title" />
+      <div
+        *ngIf="form.get('title').touched && form.get('title').invalid"
+        class="validation"
+      >
+        <small *ngIf="form.get('title').errors['required']"
+          >Enter product name</small
+        >
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="photo">Photo</label>
+      <quill-editor id="photo" formControlName="photo"></quill-editor>
+    </div>
+
+    <div class="form-control">
+      <label for="info">Information</label>
+      <quill-editor id="info" formControlName="info"></quill-editor>
+    </div>
+
+    <div class="form-control">
+      <label for="price">Price</label>
+      <input id="price" type="number" formControlName="price" />
+      <div
+        *ngIf="form.get('price').touched && form.get('price').invalid"
+        class="validation"
+      >
+        <small *ngIf="form.get('price').errors['required']"
+          >Enter product price</small
+        >
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary btn-block"
+      [disabled]="form.invalid || submitted"
+    >
+      Update
+    </button>
+  </form>
+</ng-container>
+<ng-container *ngIf="!form">
+  <p class="text-center">Loading ...</p>
+</ng-container>
